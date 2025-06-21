@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CashWin91 - Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>CashWin91</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </header>
+
+  <section class="user-panel">
+    <div class="profile-card">
+      <p>Welcome, <span id="userPhone">+91-XXXXXX</span></p>
+      <p>Wallet: ₹<span id="walletBalance">0.00</span></p>
+    </div>
+    <div class="actions">
+      <button onclick="goTo('recharge.html')">Recharge</button>
+      <button onclick="goTo('withdraw.html')">Withdraw</button>
+      <button onclick="goTo('bonus.html')">Bonus</button>
+      <button onclick="goTo('share.html')">Refer & Earn</button>
+    </div>
+  </section>
+
+  <section class="games-section">
+    <h2>Popular Games</h2>
+    <div class="games">
+      <div class="game-card" onclick="goTo('color.html')">🎨 Color Prediction</div>
+      <div class="game-card" onclick="goTo('spin.html')">🎯 Spin Wheel</div>
+      <div class="game-card">🧠 Number Guess</div>
+      <div class="game-card">🎲 Ludo</div>
+      <div class="game-card">💎 Lucky Diamonds</div>
+    </div>
+  </section>
+
+  <script>
+    function goTo(page) {
+      window.location.href = page;
+    }
+
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      window.location.href = "index.html";
+    }
+
+    // Load dummy phone and wallet balance
+    document.getElementById('userPhone').innerText = localStorage.getItem("userPhone") || "+91-User";
+    document.getElementById('walletBalance').innerText = "1000.00";
+  </script>
+</body>
+</html>
