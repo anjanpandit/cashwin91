@@ -1,22 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CashWin91 - Login</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #001f3f, #0074D9);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+    .login-box {
+      background: #ffffff10;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .login-box h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    input[type="tel"], input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #FFDC00;
+      color: #111;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #FF851B;
+    }
+    .otp-box {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <div class="login-container">
+  <div class="login-box">
     <h2>Welcome to CashWin91</h2>
-    <input type="text" id="phoneInput" placeholder="Enter Phone Number" maxlength="10">
-    <button onclick="sendOTP()">Send OTP</button>
-
-    <div id="otpSection" style="display:none;">
-      <input type="text" id="otpInput" placeholder="Enter OTP">
-      <button onclick="verifyOTP()">Verify</button>
+    <div class="phone-box">
+      <input type="tel" id="phone" placeholder="Enter Phone Number" maxlength="10">
+      <button onclick="sendOTP()">Send OTP</button>
     </div>
-  </div>
+    <div class="otp-box">
+      <input type="number" id="otp" placeholder="Enter OTP">
+      <button onclick="verifyOTP()">Login</button>
+    </div>
+  </div>  <script>
+    function sendOTP() {
+      const phone = document.getElementById('phone').value;
+      if(phone.length === 10) {
+        document.querySelector('.phone-box').style.display = 'none';
+        document.querySelector('.otp-box').style.display = 'block';
+      } else {
+        alert('Please enter a valid 10-digit phone number.');
+      }
+    }
 
-  <script src="script.js"></script>
-</body>
+    function verifyOTP() {
+      const otp = document.getElementById('otp').value;
+      if(otp === '1234') {
+        window.location.href = 'home.html';
+      } else {
+        alert('Incorrect OTP. Try 1234 for demo.');
+      }
+    }
+  </script></body>
 </html>
