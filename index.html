@@ -1,26 +1,22 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>CashWin91 - Login</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="login-container">
-    <h2>CashWin91 🎯</h2>
-    <p>Please login to continue</p>
-    <input type="text" id="username" placeholder="Enter your username" />
-    <button onclick="login()">Login</button>
-  </div>  <div id="game-container" style="display:none;">
-    <h2>CashWin91 🎯</h2>
-    <p>Color Prediction Game</p>
-    <p id="balance">Balance: ₹90</p>
-    <div class="buttons">
-      <button onclick="makePrediction('red')" class="red">Red</button>
-      <button onclick="makePrediction('green')" class="green">Green</button>
-      <button onclick="makePrediction('purple')" class="purple">Purple</button>
+  <div class="login-container">
+    <h2>Welcome to CashWin91</h2>
+    <input type="text" id="phoneInput" placeholder="Enter Phone Number" maxlength="10">
+    <button onclick="sendOTP()">Send OTP</button>
+
+    <div id="otpSection" style="display:none;">
+      <input type="text" id="otpInput" placeholder="Enter OTP">
+      <button onclick="verifyOTP()">Verify</button>
     </div>
-    <p id="result"></p>
-    <button onclick="logout()" class="logout">Logout</button>
-  </div>  <script src="script.js"></script></body>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
