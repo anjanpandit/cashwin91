@@ -1,16 +1,24 @@
-// Dummy OTP Generator function generateOTP() { return Math.floor(1000 + Math.random() * 9000).toString(); }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CashWin - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Welcome to CashWin</h2>
+    <p>Choose a game to play:</p>
+    <ul>
+      <li><a href="#">🎨 Color Prediction</a></li>
+      <li><a href="#">🎲 Ludo</a></li>
+      <li><a href="#">🎰 Spin Wheel</a></li>
+      <li><a href="#">🃏 Card Game</a></li>
+      <li><a href="#">💰 Lucky Draw</a></li>
+    </ul>
+    <button onclick="logout()">Logout</button>
+  </div>
 
-// Store the generated OTP let currentOTP = '';
-
-// Handle Login Submit function handleLogin(event) { event.preventDefault(); const phone = document.getElementById('phone').value; const otpInput = document.getElementById('otp'); const submitBtn = document.getElementById('submitBtn');
-
-// Step 1: Generate and Show OTP Input if (!currentOTP) { currentOTP = generateOTP(); alert("Your OTP is: " + currentOTP); // Replace with SMS API in real setup otpInput.style.display = 'block'; submitBtn.innerText = "Verify OTP"; return; }
-
-// Step 2: Verify OTP const enteredOtp = otpInput.value; if (enteredOtp === currentOTP) { // Success sessionStorage.setItem('loggedIn', 'true'); window.location.href = "home.html"; } else { alert("Incorrect OTP. Try again."); } }
-
-// Auto redirect if already logged in window.onload = function () { const isLoggedIn = sessionStorage.getItem('loggedIn'); if (isLoggedIn && window.location.pathname.includes("index.html")) { window.location.href = "home.html"; }
-
-if (!isLoggedIn && window.location.pathname.includes("home.html")) { window.location.href = "index.html"; }
-
-// Logout button const logoutBtn = document.getElementById('logoutBtn'); if (logoutBtn) { logoutBtn.onclick = function () { sessionStorage.removeItem('loggedIn'); window.location.href = "index.html"; } } };
-
+  <script src="home.js"></script>
+</body>
+</html>
